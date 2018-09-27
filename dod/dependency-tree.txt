@@ -1,0 +1,87 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] dod
+[INFO] c
+[INFO] b
+[INFO] a
+[INFO] a-project
+[INFO] b-project
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building dod 1
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ dod ---
+[INFO] test:dod:pom:1
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building c 1
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ c ---
+[INFO] test:c:jar:1
+[INFO] \- org.slf4j:slf4j-api:jar:1.7.25:compile
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building b 1
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ b ---
+[INFO] test:b:jar:1
+[INFO] +- test:c:jar:1:compile
+[INFO] |  \- (org.slf4j:slf4j-api:jar:1.7.25:compile - omitted for conflict with 1.7.22)
+[INFO] \- org.slf4j:slf4j-api:jar:1.7.22:compile
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building a 1
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ a ---
+[INFO] test:a:jar:1
+[INFO] +- test:b:jar:1:compile
+[INFO] |  +- test:c:jar:1:compile
+[INFO] |  |  \- (org.slf4j:slf4j-api:jar:1.7.25:compile - omitted for conflict with 1.7.22)
+[INFO] |  \- (org.slf4j:slf4j-api:jar:1.7.22:compile - omitted for conflict with 1.7.21)
+[INFO] \- org.slf4j:slf4j-api:jar:1.7.21:compile
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building a-project 1
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ a-project ---
+[INFO] test:a-project:war:1
+[INFO] \- test:a:jar:1:compile
+[INFO]    +- test:b:jar:1:compile
+[INFO]    |  +- test:c:jar:1:compile
+[INFO]    |  |  \- (org.slf4j:slf4j-api:jar:1.7.25:compile - omitted for conflict with 1.7.22)
+[INFO]    |  \- (org.slf4j:slf4j-api:jar:1.7.22:compile - omitted for conflict with 1.7.21)
+[INFO]    \- org.slf4j:slf4j-api:jar:1.7.21:compile
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building b-project 1
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ b-project ---
+[INFO] test:b-project:war:1
+[INFO] \- test:b:jar:1:compile
+[INFO]    +- test:c:jar:1:compile
+[INFO]    |  \- (org.slf4j:slf4j-api:jar:1.7.25:compile - omitted for conflict with 1.7.22)
+[INFO]    \- org.slf4j:slf4j-api:jar:1.7.22:compile
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] dod ................................................ SUCCESS [  0.925 s]
+[INFO] c .................................................. SUCCESS [  0.050 s]
+[INFO] b .................................................. SUCCESS [  0.025 s]
+[INFO] a .................................................. SUCCESS [  0.032 s]
+[INFO] a-project .......................................... SUCCESS [  0.013 s]
+[INFO] b-project .......................................... SUCCESS [  0.006 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1.358 s
+[INFO] Finished at: 2018-09-27T10:07:34+02:00
+[INFO] Final Memory: 13M/232M
+[INFO] ------------------------------------------------------------------------
